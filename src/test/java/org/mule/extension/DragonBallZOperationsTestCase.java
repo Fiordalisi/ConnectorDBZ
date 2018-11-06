@@ -50,6 +50,7 @@ public class DragonBallZOperationsTestCase extends MuleArtifactFunctionalTestCas
             .getPayload()
             .getValue());
     assertThat(zwarrior.getNombre(), is(generateZWarrior("vegeta", 100).getNombre()));
+
   }
 
   @Test

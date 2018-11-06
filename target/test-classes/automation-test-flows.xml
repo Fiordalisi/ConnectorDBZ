@@ -20,6 +20,10 @@
         </dragonballz:crear-zwarrior>
     </flow>
 
+    <flow name="getObjectwarriorFlow">
+        <dragonballz:get-objectwarrior id="200" config-ref="config"/>
+    </flow>
+
     <!--<flow name="modifyWarrior">
        <dragonballz:modify-warrior id="2" nvoNombre="Gothen" config-ref="config"/>
    </flow>
@@ -41,9 +45,7 @@
         <dragonballz:get-zwarrior nombre="Gohan" config-ref="config"/>
     </flow>
 
-    <flow name="getObjectwarriorFlow">
-        <dragonballz:get-objectwarrior nombre="Goku" config-ref="config"/>
-    </flow>
+
 
     <flow name="listZwarriorFlow">
         <dragonballz:list-zwarrior config-ref="config"/>

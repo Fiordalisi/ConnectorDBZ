@@ -7,7 +7,7 @@ import static org.mule.extension.TestDataBuilder.*;
 import org.junit.Test;
 
 
-public class DragonBallZOperationsTestCase extends AbstractTestCases {
+public class DBZCreateWarriorTestsCases extends AbstractTestCases {
 
 
     protected static final String FLOW_CONFIG_LOCATION = "automation-test-flows.xml";
@@ -30,6 +30,23 @@ public class DragonBallZOperationsTestCase extends AbstractTestCases {
     }
 
 
+
+
+    @Test
+    public void executeCreateZwarriorOperation() throws Exception {
+
+        assertThat(executeCreate(generateZWarrior("vegeta", 100)).getNombre(),
+                is(generateZWarrior("vegeta", 100).getNombre()));
+    }
+
+
+    @Test
+    public void createSameWarriors() throws Exception {
+        executeCreate(generateZWarrior("vegeta", 100));
+        assertThat(executeCreate(generateZWarrior("vegeta", 100)),is(NULL));
+    }
+
+
     @Test
     public void executeNoGetZwarriorOperation() throws Exception {
 
@@ -38,26 +55,6 @@ public class DragonBallZOperationsTestCase extends AbstractTestCases {
                 .getPayload()
                 .getValue());
         assertThat(payloadValue, is("No se ha encontrado el warrior Goku"));
-    }
-
-
-    @Test
-    public void executeCreateZwarriorOperation() throws Exception {
-
-
-        assertThat(executeCreate(generateZWarrior("vegeta", 100)).getNombre(), is(generateZWarrior("vegeta", 100).getNombre()));
-
-    }
-
-    @Test
-    public void executeCrearMismoZwarriorOperation() throws Exception {
-
-        flowRunner("crearZwarriorFlow").run();
-        String payloadValue = ((String) flowRunner("crearZwarriorFlow").run()
-                .getMessage()
-                .getPayload()
-                .getValue());
-        assertThat(payloadValue, is("Ya existe el warrior (?"));
     }
 
     @Test

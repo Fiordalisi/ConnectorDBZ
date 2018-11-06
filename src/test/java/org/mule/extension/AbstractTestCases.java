@@ -15,18 +15,28 @@ public abstract class AbstractTestCases extends MuleArtifactFunctionalTestCase {
 
     @Override
     protected String[] getConfigFiles() {
-        return new String[] {
+        return new String[]{
                 FLOW_CONFIG_LOCATION
         };
     }
 
 
-   protected Zwarrior executeCreate(Zwarrior zwarrior) throws Exception{
-       Zwarrior zwarriorP = ((Zwarrior) flowRunner("crearZwarriorFlow")
-               .withPayload(zwarrior).run()
-               .getMessage()
-               .getPayload()
-               .getValue());
-       return zwarriorP;
-   }
+    protected Zwarrior executeCreate(Zwarrior zwarrior) throws Exception {
+        Zwarrior zwarriorP = ((Zwarrior) flowRunner("crearZwarriorFlow")
+                .withPayload(zwarrior).run()
+                .getMessage()
+                .getPayload()
+                .getValue());
+        return zwarriorP;
+    }
+
+    protected Zwarrior executeGet() throws Exception {
+
+        Zwarrior zwarriorP = ((Zwarrior) flowRunner("getObjectwarriorFlow").run()
+                .getMessage()
+                .getPayload()
+                .getValue());
+
+        return zwarriorP;
+    }
 }

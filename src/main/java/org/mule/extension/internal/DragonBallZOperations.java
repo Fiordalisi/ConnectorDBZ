@@ -59,7 +59,7 @@ public class DragonBallZOperations {
 
 
     @MediaType(value = ANY, strict = false)
-    public Map<Integer, Zwarrior> getHash(@Connection DragonBallZConnection connection){
+    public Map<Integer, Zwarrior> getMapWarriors(@Connection DragonBallZConnection connection){
         return connection.getMap();
     }
 

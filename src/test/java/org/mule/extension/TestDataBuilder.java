@@ -11,6 +11,9 @@ public class TestDataBuilder {
 
     public static final Zwarrior VEGETA = generateZWarrior("vegeta", 100);
     public static final Zwarrior GOKU = generateZWarrior("goku", 200);
+    public static final Zwarrior GOHAN = generateZWarrior("gohan", 150);
+    public static final Zwarrior KRILLIN = generateZWarrior("krillin", 50);
+    public static final Zwarrior MAJIN_BOO = generateZWarrior("majin boo", 90);
 
 
 

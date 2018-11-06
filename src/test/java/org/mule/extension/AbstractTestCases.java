@@ -2,9 +2,14 @@ package org.mule.extension;
 
 import org.mule.extension.api.Zwarrior;
 import org.mule.functional.junit4.MuleArtifactFunctionalTestCase;
-import scala.reflect.internal.Trees;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.mule.extension.TestDataBuilder.*;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.mule.extension.TestDataBuilder.generateZWarrior;
 
@@ -34,21 +39,27 @@ public abstract class AbstractTestCases extends MuleArtifactFunctionalTestCase {
 
     protected Zwarrior executeGet(int id) throws Exception {
 
-
         return ((Zwarrior) flowRunner("getObjectwarriorFlow")
                 .withPayload(id).run()
                 .getMessage()
                 .getPayload()
                 .getValue());
+    }
 
+    protected void executeDelete(int id) throws Exception {
+
+        flowRunner("deleteWarriorFlow")
+                .withPayload(id).run()
+                .getMessage()
+                .getPayload()
+                .getValue();
 
     }
 
-    protected  List<Zwarrior> executeGetList() throws  Exception{
-        List<Zwarrior> list = ((List<Zwarrior>) flowRunner("getObjectwarriorFlow").run()
+    protected HashMap<Integer,Zwarrior> executeGetMapWarriors() throws  Exception{
+        return  ((HashMap<Integer, Zwarrior>) flowRunner("getMapWarrirosFlow").run()
                 .getMessage()
                 .getPayload()
                 .getValue());
-        return list;
     }
 }

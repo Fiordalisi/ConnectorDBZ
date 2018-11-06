@@ -26,43 +26,33 @@
         </dragonballz:get-objectwarrior>
     </flow>
 
+    <flow name="getMapWarrirosFlow">
+        <dragonballz:get-map-warriors config-ref="config"/>
+    </flow>
+
+    <flow name="deleteWarriorFlow">
+        <dragonballz:delete-warrior config-ref="config">
+        <dragonballz:id>#[payload]</dragonballz:id>
+        </dragonballz:delete-warrior>
+    </flow>
+
     <!--
 
-    <flow name="listZwarriorFlow">
-        <dragonballz:list-zwarrior config-ref="config"/>
-    </flow>-->
 
-    <!--<flow name="modifyWarrior">
+
+    <!<flow name="modifyWarrior">
        <dragonballz:modify-warrior id="2" nvoNombre="Gothen" config-ref="config"/>
    </flow>
    -->
 
-    <!--<flow name="crearZwarriorFlow2">
-        <dragonballz:crear-zwarrior nombre="Gohan" config-ref="config"/>
-    </flow>
-
-    <flow name="crearVegeta">
-        <dragonballz:crear-zwarrior nombre="Vegeta" config-ref="config"/>
-    </flow>
-
-    <flow name="getZwarriorFlow">
-        <dragonballz:get-zwarrior nombre="Goku" config-ref="config"/>
-    </flow>
-
-    <flow name="getGohan">
-        <dragonballz:get-zwarrior nombre="Gohan" config-ref="config"/>
-    </flow>
 
 
+  <!--
 
 
-
-    <flow name="deleteWarriorFlow">
-        <dragonballz:delete-warrior id="2" config-ref="config"/>
-    </flow>
 
     <flow name="retrieveInfoFlow">
         <dragonballz:retrieve-info config-ref="config"/>
-    </flow>-->
-
+    </flow>&ndash;&gt;
+-->
 </mule>

@@ -15,16 +15,12 @@ public class DBZGetWarriorTestsCases extends AbstractTestCases{
 
     @Before
     public void setUp() throws  Exception{
-        //executeCreate(generateZWarrior("vegeta", 100));
-        //executeCreate(generateZWarrior("Goku", 200));
+        executeCreate(generateZWarrior("goku", 200));
     }
 
     @Test
     public void executeGetWarrior()throws  Exception{
-
-        executeCreate(generateZWarrior("goku", 200));
        assertThat( executeGet(200).getNombre(), is(GOKU.getNombre()));
-
     }
 
 

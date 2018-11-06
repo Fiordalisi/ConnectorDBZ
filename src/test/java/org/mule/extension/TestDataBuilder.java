@@ -1,8 +1,10 @@
 package org.mule.extension;
 
 import org.mule.extension.api.Zwarrior;
+import scala.Int;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class TestDataBuilder {
@@ -17,11 +19,25 @@ public class TestDataBuilder {
 
 
 
+
+
     public static Zwarrior generateZWarrior(String name, int id){
         Zwarrior zWarrior = new Zwarrior();
         zWarrior.setId(id);
         zWarrior.setNombre(name);
         return zWarrior;
+    }
+
+    public static HashMap<Integer, Zwarrior> generateHashMapWarriors(){
+        HashMap<Integer, Zwarrior> MAP = new HashMap<>();
+        MAP.put(VEGETA.getId(),VEGETA);
+        MAP.put(GOKU.getId(),GOKU);
+        MAP.put(GOHAN.getId(),GOHAN);
+        MAP.put(MAJIN_BOO.getId(),MAJIN_BOO);
+        MAP.put(KRILLIN.getId(),KRILLIN);
+
+        return MAP;
+
     }
 
 

@@ -62,4 +62,18 @@ public abstract class AbstractTestCases extends MuleArtifactFunctionalTestCase {
                 .getPayload()
                 .getValue());
     }
+
+    protected  void executeModify(int id, Zwarrior warrior) throws Exception{
+
+        flowRunner("modifyWarriorFlow")
+                .withPayload(warrior)
+                .withVariable("id", id)
+                .run()
+                .getMessage()
+                .getPayload()
+                .getValue();
+
+    }
+
+
 }

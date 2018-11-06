@@ -36,23 +36,26 @@
         </dragonballz:delete-warrior>
     </flow>
 
-    <!--
+    <flow name="modifyWarriorFlow">
+        <dragonballz:modify-warrior id="#[vars.id]" config-ref="config">
+            <dragonballz:warrior>#[payload]</dragonballz:warrior>
+        </dragonballz:modify-warrior>
+    </flow>
 
-
-
-    <!<flow name="modifyWarrior">
-       <dragonballz:modify-warrior id="2" nvoNombre="Gothen" config-ref="config"/>
-   </flow>
-   -->
-
+<!--
+    <flow name="updateNodesFlow">
+        <neo4j:update-nodes config-ref="config" label="#[vars.label]">
+            <neo4j:parameters>#[vars.parameters]</neo4j:parameters>
+            <neo4j:set-parameters>#[payload]</neo4j:set-parameters>
+        </neo4j:update-nodes>
+    </flow>-->
 
 
   <!--
-
-
-
-    <flow name="retrieveInfoFlow">
+<flow name="retrieveInfoFlow">
         <dragonballz:retrieve-info config-ref="config"/>
     </flow>&ndash;&gt;
 -->
+
+
 </mule>

@@ -1,0 +1,60 @@
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:dragonballz="http://www.mulesoft.org/schema/mule/dragonballz"
+      xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+          http://www.mulesoft.org/schema/mule/dragonballz http://www.mulesoft.org/schema/mule/dragonballz/current/mule-dragonballz.xsd">
+
+    <dragonballz:config name="config" configId="configId">
+        <dragonballz:connection requiredParameter="aValue" />
+    </dragonballz:config>
+
+    <flow name="sayHiFlow">
+        <dragonballz:say-hi person="Mariano Gonzalez"/>
+    </flow>
+
+
+
+    <flow name="crearZwarriorFlow">
+        <dragonballz:crear-zwarrior config-ref="config">
+            <dragonballz:warrior>#[payload]</dragonballz:warrior>
+        </dragonballz:crear-zwarrior>
+    </flow>
+
+    <!--<flow name="modifyWarrior">
+       <dragonballz:modify-warrior id="2" nvoNombre="Gothen" config-ref="config"/>
+   </flow>
+   -->
+
+    <!--<flow name="crearZwarriorFlow2">
+        <dragonballz:crear-zwarrior nombre="Gohan" config-ref="config"/>
+    </flow>
+
+    <flow name="crearVegeta">
+        <dragonballz:crear-zwarrior nombre="Vegeta" config-ref="config"/>
+    </flow>
+
+    <flow name="getZwarriorFlow">
+        <dragonballz:get-zwarrior nombre="Goku" config-ref="config"/>
+    </flow>
+
+    <flow name="getGohan">
+        <dragonballz:get-zwarrior nombre="Gohan" config-ref="config"/>
+    </flow>
+
+    <flow name="getObjectwarriorFlow">
+        <dragonballz:get-objectwarrior nombre="Goku" config-ref="config"/>
+    </flow>
+
+    <flow name="listZwarriorFlow">
+        <dragonballz:list-zwarrior config-ref="config"/>
+    </flow>
+
+    <flow name="deleteWarriorFlow">
+        <dragonballz:delete-warrior id="2" config-ref="config"/>
+    </flow>
+
+    <flow name="retrieveInfoFlow">
+        <dragonballz:retrieve-info config-ref="config"/>
+    </flow>-->
+
+</mule>

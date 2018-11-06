@@ -20,9 +20,13 @@
         </dragonballz:create-zwarrior>
     </flow>
 
-    <!--<flow name="getObjectwarriorFlow">
-        <dragonballz:get-objectwarrior id="200" config-ref="config"/>
+    <flow name="getObjectwarriorFlow">
+        <dragonballz:get-objectwarrior config-ref="config">
+        <dragonballz:id>#[payload]</dragonballz:id>
+        </dragonballz:get-objectwarrior>
     </flow>
+
+    <!--
 
     <flow name="listZwarriorFlow">
         <dragonballz:list-zwarrior config-ref="config"/>

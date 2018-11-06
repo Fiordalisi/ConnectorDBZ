@@ -34,15 +34,17 @@ public class DBZCreateWarriorTestsCases extends AbstractTestCases {
     @Test
     public void createSameWarriors() throws Exception {
         executeCreate(generateZWarrior("vegeta", 100));
-        assertThat(executeCreate(generateZWarrior("vegeta", 100)),is(NULL));
+        assertThat(executeCreate(generateZWarrior("vegeta", 100)).getNombre(),is(VEGETA.getNombre()));
     }
 
     @Test
     public void createTwoWarriors() throws Exception{
 
-        executeCreate(generateZWarrior("goku", 200));
+
         assertThat(executeCreate(generateZWarrior("vegeta", 100)).getNombre(),
-                is(generateZWarrior("vegeta", 100).getNombre()));
+                is(VEGETA.getNombre()));
+        assertThat(executeCreate(generateZWarrior("goku", 200)).getNombre(),
+                is(GOKU.getNombre()));
     }
 
 

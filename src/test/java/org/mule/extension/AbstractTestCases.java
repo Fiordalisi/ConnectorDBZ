@@ -2,6 +2,7 @@ package org.mule.extension;
 
 import org.mule.extension.api.Zwarrior;
 import org.mule.functional.junit4.MuleArtifactFunctionalTestCase;
+import scala.reflect.internal.Trees;
 
 import java.util.List;
 
@@ -24,24 +25,23 @@ public abstract class AbstractTestCases extends MuleArtifactFunctionalTestCase {
 
 
     protected Zwarrior executeCreate(Zwarrior zwarrior) throws Exception {
-        Zwarrior zwarriorP = ((Zwarrior) flowRunner("crearZwarriorFlow")
+        return  ((Zwarrior) flowRunner("crearZwarriorFlow")
                 .withPayload(zwarrior).run()
                 .getMessage()
                 .getPayload()
                 .getValue());
-        return zwarriorP;
     }
 
-    protected Zwarrior executeGet() throws Exception {
+    protected Zwarrior executeGet(int id) throws Exception {
 
-        executeCreate(generateZWarrior("vegeta", 100));
-        executeCreate(generateZWarrior("goku", 200));
-        Zwarrior zwarriorP = ((Zwarrior) flowRunner("getObjectwarriorFlow").run()
+
+        return ((Zwarrior) flowRunner("getObjectwarriorFlow")
+                .withPayload(id).run()
                 .getMessage()
                 .getPayload()
                 .getValue());
 
-        return zwarriorP;
+
     }
 
     protected  List<Zwarrior> executeGetList() throws  Exception{

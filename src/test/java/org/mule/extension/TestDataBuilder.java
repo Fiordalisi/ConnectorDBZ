@@ -9,8 +9,8 @@ public class TestDataBuilder {
 
     public static final Object NULL = null;
 
-    public static final Zwarrior VEGETA = generateZWarrior("Vegeta", 100);
-    public static final Zwarrior GOKU = generateZWarrior("Goku", 200);
+    public static final Zwarrior VEGETA = generateZWarrior("vegeta", 100);
+    public static final Zwarrior GOKU = generateZWarrior("goku", 200);
 
 
 
@@ -21,11 +21,6 @@ public class TestDataBuilder {
         return zWarrior;
     }
 
-    public static List<Zwarrior> addWarriorInList(List<Zwarrior> list, Zwarrior warrior){
-        list = new ArrayList<Zwarrior>();
-        list.add(warrior);
-        return list;
-    }
 
 
 

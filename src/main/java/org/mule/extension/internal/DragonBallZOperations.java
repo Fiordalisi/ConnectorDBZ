@@ -8,7 +8,6 @@ import org.mule.runtime.extension.api.annotation.param.MediaType;
 import org.mule.runtime.extension.api.annotation.param.Config;
 import org.mule.runtime.extension.api.annotation.param.Connection;
 
-import java.util.List;
 import java.util.Map;
 
 
@@ -40,35 +39,35 @@ public class DragonBallZOperations {
 
     @MediaType(value = ANY, strict = false)
     public Zwarrior createZwarrior(@Content Zwarrior warrior, @Connection DragonBallZConnection connection) {
-        connection.getLista().put(warrior.getId(),warrior);
-        return connection.getLista().get(warrior.getId());
+        connection.getMap().put(warrior.getId(),warrior);
+        return connection.getMap().get(warrior.getId());
     }
 
 
 
     @MediaType(value = ANY, strict = false)
     public void modifyWarrior(int id, @Content Zwarrior warrior, @Connection DragonBallZConnection connection){
-        connection.getLista().get(id).setNombre(warrior.getNombre());
+        connection.getMap().get(id).setNombre(warrior.getNombre());
     }
 
 
 
     @MediaType(value = ANY, strict = false)
     public void deleteWarrior(@Content int id, @Connection DragonBallZConnection connection){
-        connection.getLista().remove(id);
+        connection.getMap().remove(id);
     }
 
 
     @MediaType(value = ANY, strict = false)
     public Map<Integer, Zwarrior> getHash(@Connection DragonBallZConnection connection){
-        return connection.getLista();
+        return connection.getMap();
     }
 
 
     @MediaType(value = ANY, strict = false)
     public Zwarrior getObjectwarrior(@Content int id, @Connection DragonBallZConnection connection){
 
-        return connection.getLista().get(id);
+        return connection.getMap().get(id);
     }
     /**
      * Private Methods are not exposed as operations

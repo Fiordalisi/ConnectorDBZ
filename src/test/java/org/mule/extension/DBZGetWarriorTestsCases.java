@@ -22,9 +22,8 @@ public class DBZGetWarriorTestsCases extends AbstractTestCases{
     @Test
     public void executeGetWarrior()throws  Exception{
 
-        //executeCreate(generateZWarrior("Goku", 200));
-        System.out.println("executeGet().getNombre() = " + executeGet().getNombre());
-        //assertThat( executeGet().getNombre(), is(generateZWarrior("Goku", 200).getNombre()));
+        executeCreate(generateZWarrior("goku", 200));
+       assertThat( executeGet(200).getNombre(), is(GOKU.getNombre()));
 
     }
 

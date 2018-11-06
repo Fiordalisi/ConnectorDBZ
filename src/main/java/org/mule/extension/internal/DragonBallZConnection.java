@@ -15,7 +15,7 @@ public final class DragonBallZConnection {
 
   private final String id;
 
-  private Map<Integer, Zwarrior> lista = new HashMap<>();
+  private Map<Integer, Zwarrior> map = new HashMap<>();
 
   public DragonBallZConnection(String id) {
     this.id = id;
@@ -25,8 +25,8 @@ public final class DragonBallZConnection {
     return id;
   }
 
-  public Map<Integer, Zwarrior> getLista() {
-    return lista;
+  public Map<Integer, Zwarrior> getMap() {
+    return map;
   }
 
   public void invalidate() {

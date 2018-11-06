@@ -20,15 +20,6 @@ public class DBZCreateWarriorTestsCases extends AbstractTestCases {
         return "automation-test-flows.xml";
     }
 
-    @Test
-    public void executeSayHiOperation() throws Exception {
-        String payloadValue = ((String) flowRunner("sayHiFlow").run()
-                .getMessage()
-                .getPayload()
-                .getValue());
-        assertThat(payloadValue, is("Hello Mariano Gonzalez!!!"));
-    }
-
 
 
 
@@ -44,6 +35,14 @@ public class DBZCreateWarriorTestsCases extends AbstractTestCases {
     public void createSameWarriors() throws Exception {
         executeCreate(generateZWarrior("vegeta", 100));
         assertThat(executeCreate(generateZWarrior("vegeta", 100)),is(NULL));
+    }
+
+    @Test
+    public void createTwoWarriors() throws Exception{
+
+        executeCreate(generateZWarrior("goku", 200));
+        assertThat(executeCreate(generateZWarrior("vegeta", 100)).getNombre(),
+                is(generateZWarrior("vegeta", 100).getNombre()));
     }
 
 
@@ -66,6 +65,16 @@ public class DBZCreateWarriorTestsCases extends AbstractTestCases {
                 .getPayload()
                 .getValue());
         assertThat(payloadValue, is("Se encontro a Goku con id: 1"));
+    }
+
+
+    @Test
+    public void executeSayHiOperation() throws Exception {
+        String payloadValue = ((String) flowRunner("sayHiFlow").run()
+                .getMessage()
+                .getPayload()
+                .getValue());
+        assertThat(payloadValue, is("Hello Mariano Gonzalez!!!"));
     }
 
  /* @Test

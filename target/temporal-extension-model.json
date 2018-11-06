@@ -1,14 +1,14 @@
 {
   "name": "DragonBallZ",
   "description": "This is the main class of an extension, is the entry point from which configurations, connection providers, operations and sources are going to be declared.",
-  "version": "1.0.14-SNAPSHOT",
+  "version": "1.0.15-SNAPSHOT",
   "vendor": "Mulesoft",
   "category": "COMMUNITY",
   "xmlDsl": {
     "prefix": "dragonballz",
     "namespace": "http://www.mulesoft.org/schema/mule/dragonballz",
     "schemaLocation": "http://www.mulesoft.org/schema/mule/dragonballz/current/mule-dragonballz.xsd",
-    "schemaVersion": "1.0.14-SNAPSHOT",
+    "schemaVersion": "1.0.15-SNAPSHOT",
     "xsdFileName": "mule-dragonballz.xsd"
   },
   "resources": [],
@@ -192,10 +192,7 @@
           "output": {
             "type": {
               "format": "java",
-              "type": "Boolean",
-              "annotations": {
-                "typeId": "boolean"
-              }
+              "type": "@ref:org.mule.extension.api.Zwarrior"
             },
             "hasDynamicType": false,
             "description": "",

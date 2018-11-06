@@ -6,7 +6,7 @@
         <sourceOutputDir name="target/classes/META-INF" />
         <sourceTestOutputDir name="target/generated-sources/apt-test" />
         <outputRelativeToContentRoot value="true" />
-        <option name="extension.version" value="1.0.14-SNAPSHOT" />
+        <option name="extension.version" value="1.0.15-SNAPSHOT" />
         <processor name="org.mule.runtime.module.extension.internal.resources.ExtensionResourcesGeneratorAnnotationProcessor" />
         <module name="mule-dragonballz-connector" />
       </profile>

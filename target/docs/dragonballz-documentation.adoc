@@ -82,7 +82,7 @@ Default configuration
 ==== Output
 [cols=".^50%,.^50%"]
 |======================
-| *Type* a| Boolean
+| *Type* a| <<Zwarrior>>
 |======================
 
 ==== For Configurations.

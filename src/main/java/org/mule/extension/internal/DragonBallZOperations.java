@@ -8,6 +8,9 @@ import org.mule.runtime.extension.api.annotation.param.MediaType;
 import org.mule.runtime.extension.api.annotation.param.Config;
 import org.mule.runtime.extension.api.annotation.param.Connection;
 
+import java.util.List;
+import java.util.Map;
+
 
 /**
  * This class is a container for operations, every public method in this class will be taken as an extension operation.
@@ -36,66 +39,36 @@ public class DragonBallZOperations {
 
 
     @MediaType(value = ANY, strict = false)
-    public Zwarrior crearZwarrior(@Content Zwarrior warrior, @Connection DragonBallZConnection connection) {
-
-        for (int i = 0; i < connection.getLista().size(); i++) {
-            if (connection.getLista().get(i).getNombre() == warrior.getNombre())
-                return null;
-        }
-        Zwarrior z = new Zwarrior();
-        z.setNombre(warrior.getNombre());
-        z.setId(connection.getLista().size()+1);
-        connection.getLista().add(z);
-        return warrior;
+    public Zwarrior createZwarrior(@Content Zwarrior warrior, @Connection DragonBallZConnection connection) {
+        connection.getLista().put(warrior.getId(),warrior);
+        return connection.getLista().get(warrior.getId());
     }
 
 
 
     @MediaType(value = ANY, strict = false)
-    public void modifyWarrior(int id, String nvoNombre, @Connection DragonBallZConnection connection){
-        for(int i = 0; i < connection.getLista().size(); i++){
-            if(connection.getLista().get(i).getId() == id)
-                connection.getLista().get(i).setNombre(nvoNombre);
-        }
+    public void modifyWarrior(int id, @Content Zwarrior warrior, @Connection DragonBallZConnection connection){
+        connection.getLista().get(id).setNombre(warrior.getNombre());
     }
 
-    @MediaType(value = ANY, strict = false)
-    public String listZwarrior(@Connection DragonBallZConnection connection) {
-        String warriors = "";
-        for (int i = 0; i < connection.getLista().size(); i++) {
-            warriors += connection.getLista().get(i).getNombre() + ", ";
-        }
-        return "Los Warriors son: " + warriors.substring(0,warriors.length()-2);
-    }
+
 
     @MediaType(value = ANY, strict = false)
-    public void deleteWarrior(int id, @Connection DragonBallZConnection connection){
-        for (int i = 0; i < connection.getLista().size(); i++) {
-            if (connection.getLista().get(i).getId() == id){
-                connection.getLista().remove(connection.getLista().get(i));
-            }
-        }
+    public void deleteWarrior(@Content int id, @Connection DragonBallZConnection connection){
+        connection.getLista().remove(id);
     }
 
 
     @MediaType(value = ANY, strict = false)
-    public String getZwarrior(String nombre, @Connection DragonBallZConnection connection) {
-
-        for (int i = 0; i < connection.getLista().size(); i++) {
-            if (connection.getLista().get(i).getNombre() == nombre)
-                return "Se encontro a " + nombre + " con id: " + connection.getLista().get(i).getId();
-        }
-        return "No se ha encontrado el warrior " + nombre;
+    public Map<Integer, Zwarrior> getHash(@Connection DragonBallZConnection connection){
+        return connection.getLista();
     }
 
-    @MediaType(value = ANY, strict = false)
-    public Zwarrior getObjectwarrior(int id, @Connection DragonBallZConnection connection){
 
-        for (int i = 0; i < connection.getLista().size(); i++) {
-            if (connection.getLista().get(i).getId() == id)
-                return connection.getLista().get(i);
-        }
-        return null;
+    @MediaType(value = ANY, strict = false)
+    public Zwarrior getObjectwarrior(@Content int id, @Connection DragonBallZConnection connection){
+
+        return connection.getLista().get(id);
     }
     /**
      * Private Methods are not exposed as operations

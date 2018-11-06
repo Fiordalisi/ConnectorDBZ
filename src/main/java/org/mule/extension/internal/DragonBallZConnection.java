@@ -3,8 +3,10 @@ package org.mule.extension.internal;
 
 import org.mule.extension.api.Zwarrior;
 
-import java.util.ArrayList;
-import java.util.List;
+
+import java.util.HashMap;
+
+import java.util.Map;
 
 /**
  * This class represents an extension connection just as example (there is no real connection with anything here c:).
@@ -13,7 +15,7 @@ public final class DragonBallZConnection {
 
   private final String id;
 
-  private List<Zwarrior> lista = new ArrayList<Zwarrior>();
+  private Map<Integer, Zwarrior> lista = new HashMap<>();
 
   public DragonBallZConnection(String id) {
     this.id = id;
@@ -23,8 +25,8 @@ public final class DragonBallZConnection {
     return id;
   }
 
-  public List<Zwarrior> getLista(){
-    return this.lista;
+  public Map<Integer, Zwarrior> getLista() {
+    return lista;
   }
 
   public void invalidate() {

@@ -15,14 +15,18 @@
 
 
     <flow name="crearZwarriorFlow">
-        <dragonballz:crear-zwarrior config-ref="config">
+        <dragonballz:create-zwarrior config-ref="config">
             <dragonballz:warrior>#[payload]</dragonballz:warrior>
-        </dragonballz:crear-zwarrior>
+        </dragonballz:create-zwarrior>
     </flow>
 
-    <flow name="getObjectwarriorFlow">
+    <!--<flow name="getObjectwarriorFlow">
         <dragonballz:get-objectwarrior id="200" config-ref="config"/>
     </flow>
+
+    <flow name="listZwarriorFlow">
+        <dragonballz:list-zwarrior config-ref="config"/>
+    </flow>-->
 
     <!--<flow name="modifyWarrior">
        <dragonballz:modify-warrior id="2" nvoNombre="Gothen" config-ref="config"/>
@@ -47,9 +51,7 @@
 
 
 
-    <flow name="listZwarriorFlow">
-        <dragonballz:list-zwarrior config-ref="config"/>
-    </flow>
+
 
     <flow name="deleteWarriorFlow">
         <dragonballz:delete-warrior id="2" config-ref="config"/>

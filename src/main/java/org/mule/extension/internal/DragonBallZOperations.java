@@ -8,7 +8,10 @@ import org.mule.runtime.extension.api.annotation.param.MediaType;
 import org.mule.runtime.extension.api.annotation.param.Config;
 import org.mule.runtime.extension.api.annotation.param.Connection;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 
 /**
@@ -59,8 +62,9 @@ public class DragonBallZOperations {
 
 
     @MediaType(value = ANY, strict = false)
-    public Map<Integer, Zwarrior> getMapWarriors(@Connection DragonBallZConnection connection){
-        return connection.getMap();
+    public List<Zwarrior> getMapWarriors(@Connection DragonBallZConnection connection){
+
+        return connection.getMap().values().stream().collect(Collectors.toList());
     }
 
 

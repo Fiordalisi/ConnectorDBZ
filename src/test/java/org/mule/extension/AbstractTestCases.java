@@ -7,6 +7,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.mule.extension.TestDataBuilder.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -56,8 +57,8 @@ public abstract class AbstractTestCases extends MuleArtifactFunctionalTestCase {
 
     }
 
-    protected HashMap<Integer,Zwarrior> executeGetMapWarriors() throws  Exception{
-        return  ((HashMap<Integer, Zwarrior>) flowRunner("getMapWarrirosFlow").run()
+    protected ArrayList<Zwarrior> executeGetMapWarriors() throws  Exception{
+        return  ((ArrayList<Zwarrior>) flowRunner("getMapWarrirosFlow").run()
                 .getMessage()
                 .getPayload()
                 .getValue());
